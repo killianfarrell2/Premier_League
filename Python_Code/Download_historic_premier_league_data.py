@@ -3,6 +3,10 @@ import pandas as pd
 import datetime
 import os
 
+#Get Current time to be used to find run time at end of program
+startTime = datetime.datetime.now()
+
+
 #Create folder to download data to
 directory ='D:\\Football_Results_Downloads\\'
 if not os.path.exists(directory):
@@ -62,3 +66,7 @@ max_season = copy_data['season_end_year'].max()
 file_name = 'Historic_League_Results_'+division+'_'+str(min_season)+'_'+str(max_season)+'.csv'
 #Save file to directory as csv
 copy_data.to_csv(directory+file_name)
+
+#Get run time
+run_time = datetime.datetime.now() - startTime
+print(run_time)
